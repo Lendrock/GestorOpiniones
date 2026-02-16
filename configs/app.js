@@ -10,8 +10,9 @@ import { requestLimit } from "../middlewares/request-limit.js";
 
 // Rutas
 import { dbConnection } from './db.js';
+import userRoutes from '../src/users/user.routes.js';
 
-const BASE_URL = '/GestorOpiniones/v1';
+const BASE_URL = '/gestor-opiniones/v1';
 
 const middlewares = (app) => {
     app.use(helmet(helmetConfiguration));
@@ -24,7 +25,7 @@ const middlewares = (app) => {
 
 //Integracion de todas las rutas
 const routes = (app) => {
-
+    app.use(`${BASE_URL}/users`, userRoutes);
 }
 
 // funcion para iniciar el servidor
@@ -50,7 +51,7 @@ const initServer = async (app) => {
             res.status(200).json(
                 {
                     status: 'ok',
-                    service: 'Gestor Opiniones',
+                    service: 'Gestor de Opiniones',
                     version: '1.0.0'
                 }
             );

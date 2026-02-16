@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "a78ef595-4005-4fb0-ab25-715952a95b1a",
+    "name": "Gestion Opiniones",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48145712",
+    "_collection_link": "https://go.postman.co/collection/48145712-a78ef595-4005-4fb0-ab25-715952a95b1a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Lista de usuarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/gestor-opiniones/v1/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "gestor-opiniones",
+            "v1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear un usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Gerardo Morales\",\r\n    \"username\": \"gmorales\",\r\n    \"email\": \"gmorales@kinal.edu.gt\",\r\n    \"password\": \"Password123!\",\r\n    \"telefono\": \"5555-1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/gestor-opiniones/v1/users/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "gestor-opiniones",
+            "v1",
+            "users",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Logear un usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Gerardo Morales\",\r\n    \"username\": \"gmorales\",\r\n    \"email\": \"gmorales@kinal.edu.gt\",\r\n    \"password\": \"Password123!\",\r\n    \"telefono\": \"5555-1234\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/gestor-opiniones/v1/users/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "gestor-opiniones",
+            "v1",
+            "users",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Editar Usuario",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Gerardo Morales Editado\",\r\n    \"username\": \"gmorales_nuevo\",\r\n    \"email\": \"gmorales_actualizado@kinal.edu.gt\",\r\n    \"telefono\": \"1234-5678\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/gestor-opiniones/v1/users/6993593d52f5472d57acb0ed",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "gestor-opiniones",
+            "v1",
+            "users",
+            "6993593d52f5472d57acb0ed"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"password\": \"Password123!\",\r\n    \"confirmacion\": \"SI, ESTOY SEGURO\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/gestor-opiniones/v1/users/6993593d52f5472d57acb0ed",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "gestor-opiniones",
+            "v1",
+            "users",
+            "6993593d52f5472d57acb0ed"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
