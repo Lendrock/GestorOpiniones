@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../users/user.model.js';
+import userModel from '../src/users/user.model.js';
 
 export const validateJWT = async (req, res, next) => {
     const token = req.header('x-token');
@@ -10,7 +10,7 @@ export const validateJWT = async (req, res, next) => {
 
     try {
         const { uid } = jwt.verify(token, process.env.SECRET_OR_PRIVATE_KEY);
-        const user = await User.findById(uid);
+        const user = await userModel.findById(uid);
 
         if (!user || !user.activo) {
             return res.status(401).json({ msg: 'Token no válido - usuario inactivo' });

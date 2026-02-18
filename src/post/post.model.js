@@ -27,6 +27,10 @@ const PostSchema = Schema({
         ref: 'User',
         required: true
     },
+    activo: {
+        type: Boolean,
+        default: true
+    },
     comentarios: [CommentSchema]
 }, { timestamps: true });
 
