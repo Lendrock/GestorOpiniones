@@ -11,6 +11,7 @@ import { requestLimit } from "../middlewares/request-limit.js";
 // Rutas
 import { dbConnection } from './db.js';
 import userRoutes from '../src/users/user.routes.js';
+import postRoutes from '../src/post/post.routes.js';
 
 const BASE_URL = '/gestor-opiniones/v1';
 
@@ -26,6 +27,7 @@ const middlewares = (app) => {
 //Integracion de todas las rutas
 const routes = (app) => {
     app.use(`${BASE_URL}/users`, userRoutes);
+    app.use(`${BASE_URL}/posts`, postRoutes);
 }
 
 // funcion para iniciar el servidor
