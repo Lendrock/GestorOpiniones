@@ -1,6 +1,6 @@
 import User from "./user.model.js";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import { generateJWT } from "../../helpers/generate-jwt.js";
 
 // Registro de Usuario
 export const register = async (req, res) => {
@@ -27,16 +27,27 @@ export const login = async (req, res) => {
             $or: [{ email: identifier }, { username: identifier }]
         });
 
-        if (!user || !bcrypt.compareSync(password, user.password)) {
-            return res.status(400).json({ success: false, message: "Credenciales inválidas" });
+        // Verificamos si existe y si está activo
+        if (!user || !user.activo || !bcrypt.compareSync(password, user.password)) {
+            return res.status(400).json({
+                success: false,
+                message: "Credenciales inválidas o cuenta inactiva"
+            });
         }
 
-        // Generación de Token (Seguridad obligatoria del bimestre)
-        // const token = generateJWT(user.id); 
+        //generamos token
+        const token = await generateJWT(user.id);
 
-        res.status(200).json({ success: true, message: `Bienvenido ${user.nombre}` });
+        res.status(200).json({
+            success: true,
+            message: `Bienvenido ${user.nombre}`,
+            userDetails: {
+                username: user.username,
+                token: token
+            }
+        });
     } catch (error) {
-        res.status(500).json({ success: false, message: "Error en el login" });
+        res.status(500).json({ success: false, message: "Error en el login", error: error.message });
     }
 };
 
